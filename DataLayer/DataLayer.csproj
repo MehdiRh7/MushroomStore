@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5754AF49-C68C-45BF-A49F-9584BAE6D38C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DataLayer</RootNamespace>
+    <AssemblyName>DataLayer</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Context\MyContext.cs" />
+    <Compile Include="Migrations\202212040219432_Create1.cs" />
+    <Compile Include="Migrations\202212040219432_Create1.designer.cs">
+      <DependentUpon>202212040219432_Create1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Comparison.cs" />
+    <Compile Include="Models\Customers.cs" />
+    <Compile Include="Models\Login.cs" />
+    <Compile Include="Models\Mushrooms.cs" />
+    <Compile Include="Models\PurchaseHistory.cs" />
+    <Compile Include="Models\SaleHistory.cs" />
+    <Compile Include="Models\Sellers.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\IComparisonRepository.cs" />
+    <Compile Include="Repositories\ICustomerRepository.cs" />
+    <Compile Include="Repositories\ILoginRepository.cs" />
+    <Compile Include="Repositories\IMushroomRepository.cs" />
+    <Compile Include="Repositories\IPurchaseHistoryRepository.cs" />
+    <Compile Include="Repositories\ISaleHistoryRepository.cs" />
+    <Compile Include="Repositories\ISellerRepository.cs" />
+    <Compile Include="Services\ComparisonRepository.cs" />
+    <Compile Include="Services\CustomerRepository.cs" />
+    <Compile Include="Services\LoginRepository.cs" />
+    <Compile Include="Services\MushroomRepository.cs" />
+    <Compile Include="Services\PurchaseHistoryRepository.cs" />
+    <Compile Include="Services\SaleHistoryRepository.cs" />
+    <Compile Include="Services\SellerRepository.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="EntityFramework">
+      <Version>6.4.4</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202212040219432_Create1.resx">
+      <DependentUpon>202212040219432_Create1.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
